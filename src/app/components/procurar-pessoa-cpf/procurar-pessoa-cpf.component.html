@@ -1,0 +1,36 @@
+<!-- src/app/components/procurar-pessoa-cpfcnpj/procurar-pessoa-cpfcnpj.component.html -->
+<h1>Procurar Pessoas por CPF/CNPJ</h1>
+<div>
+  <input type="text" [(ngModel)]="cpfCnpj" placeholder="Digite o CPF/CNPJ">
+  <button (click)="procurarPessoas()">Procurar</button>
+</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="pessoas.length > 0">
+  <h2>Lista de Pessoas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CPF/CNPJ</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Produto</th>
+        <th>Data da Venda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <td>{{ pessoa.id }}</td>
+        <td>{{ pessoa.cpfCnpj }}</td>
+        <td>{{ pessoa.nome }}</td>
+        <td>{{ pessoa.preco }}</td>
+        <td>{{ pessoa.quantidade }}</td>
+        <td>{{ pessoa.produto.nome }}</td>
+        <td>{{ pessoa.dataVenda | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

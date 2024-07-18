@@ -1,0 +1,25 @@
+<h2>Lista de Pessoas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>CPF/CNPJ</th>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th>Produto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{ pessoa.cpfCnpj }}</td>
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.preco }}</td>
+      <td>{{ pessoa.quantidade }}</td>
+      <td>{{ pessoa.produto.nome }}</td> <!-- Exibindo o nome do produto -->
+      <td>
+        <!-- <a [routerLink]="['/detalhes-pessoa', pessoa.id]">Detalhes</a>
+        <a [routerLink]="['/editar-pessoa', pessoa.id]">Editar</a> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
