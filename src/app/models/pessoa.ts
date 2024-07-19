@@ -7,5 +7,5 @@ export interface Pessoa {
   preco: number;
   quantidade: number;
   dataVenda: Date;
-  produto: Produto; // Adicionando a referência ao produto
+  produto: Produto;
 }

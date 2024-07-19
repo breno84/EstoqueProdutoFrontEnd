@@ -29,5 +29,9 @@ export class PessoaService {
     return this.http.delete<Pessoa[]>(`${this.baseUrl}/delete/${id}`);
   }
 
+  createVenda(pessoa: Pessoa): Observable<Pessoa> {
+    return this.http.post<Pessoa>(`${this.baseUrl}/create`, pessoa);
+  }
+
 
 }

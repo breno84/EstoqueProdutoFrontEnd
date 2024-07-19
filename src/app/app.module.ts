@@ -10,14 +10,15 @@ import { ListaPessoaComponent } from './components/lista-pessoa/lista-pessoa.com
 import { ProcurarPessoaComponent } from './components/procurar-pessoa/procurar-pessoa.component';
 import { ProcurarPessoaCpfComponent } from './components/procurar-pessoa-cpf/procurar-pessoa-cpf.component';
 import { DeleteIdComponent } from './components/delete-id/delete-id.component';
-
+import { VendaCpfComponent } from './components/venda-cpf/venda-cpf.component';
 @NgModule({
   declarations: [
     AppComponent,
     ListaPessoaComponent,
     ProcurarPessoaComponent,
     ProcurarPessoaCpfComponent,
-    DeleteIdComponent
+    DeleteIdComponent,
+    VendaCpfComponent,
   ],
   imports: [
     BrowserModule,
