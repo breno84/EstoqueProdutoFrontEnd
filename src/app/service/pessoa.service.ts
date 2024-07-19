@@ -24,4 +24,10 @@ export class PessoaService {
     return this.http.get<Pessoa[]>(`${this.baseUrl}/listaCpfCnpj?cpfCnpj=${cpfCnpj}`);
   }
 
+  deleteVendasId(id: number): Observable<Pessoa[]> {
+    console.log(`${this.baseUrl}/deleteId`);
+    return this.http.delete<Pessoa[]>(`${this.baseUrl}/delete/${id}`);
+  }
+
+
 }
