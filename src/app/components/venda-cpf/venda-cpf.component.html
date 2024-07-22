@@ -22,18 +22,10 @@
       <input type="date" id="dataVenda" [(ngModel)]="pessoa.dataVenda" name="dataVenda">
     </div>
     <div class="form-group">
-      <label for="produtoNome">Nome do Produto:</label>
-      <input type="text" id="produtoNome" [(ngModel)]="pessoa.produto.nome" name="produtoNome">
-    </div>
-    <div class="form-group">
       <label for="idProduto">Id do Produto:</label>
       <input type="text" id="idProduto" [(ngModel)]="pessoa.produto.id" name="idProduto">
     </div>
-    <div class="form-group">
-      <label for="produtoPreco">Preço do Produto:</label>
-      <input type="number" id="produtoPreco" [(ngModel)]="pessoa.produto.preco" name="produtoPreco">
-    </div>
-    <button type="submit">Criar Venda</button>
+    <button type="button" (click)="criarVenda()">Criar Venda</button>
   </form>
   <div *ngIf="error">{{ error }}</div>
 </div>

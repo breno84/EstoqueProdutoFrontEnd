@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../../service/pessoa.service';
 import { Pessoa } from '../../models/pessoa';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-venda-cpf',
@@ -24,7 +25,7 @@ export class VendaCpfComponent implements OnInit {
   };
   error: string | null = null;
 
-  constructor(private pessoaService: PessoaService) {}
+  constructor(private pessoaService: PessoaService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -33,11 +34,13 @@ export class VendaCpfComponent implements OnInit {
       next: (data) => {
         console.log('Venda criada:', data);
         this.error = null;
+        this.router.navigate(['/lista-pessoa']);
       },
       error: (err) => {
         this.error = 'Erro ao criar venda';
         console.error(err);
       }
+      
     });
   }
 }

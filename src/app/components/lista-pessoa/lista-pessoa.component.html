@@ -5,6 +5,7 @@
       <th>CPF/CNPJ</th>
       <th>Nome</th>
       <th>Preço</th>
+      <th>Data Venda</th>
       <th>Quantidade</th>
       <th>Produto</th>
     </tr>
@@ -14,8 +15,9 @@
       <td>{{ pessoa.cpfCnpj }}</td>
       <td>{{ pessoa.nome }}</td>
       <td>{{ pessoa.preco }}</td>
+      <td>{{ pessoa.dataVenda | date:'dd/MM/yyyy' }}</td>
       <td>{{ pessoa.quantidade }}</td>
-      <td>{{ pessoa.produto.nome }}</td> <!-- Exibindo o nome do produto -->
+      <td>{{ pessoa.produto.nome }}</td>
       <td>
         <!-- <a [routerLink]="['/detalhes-pessoa', pessoa.id]">Detalhes</a>
         <a [routerLink]="['/editar-pessoa', pessoa.id]">Editar</a> -->
