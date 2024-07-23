@@ -1,4 +1,4 @@
-<!-- src/app/components/procurar-pessoa-cpfcnpj/procurar-pessoa-cpfcnpj.component.html -->
+<!-- src/app/components/procurar-pessoa-cpfcnpj/procurar-pessoa-cpfcnpj.component.html
 <h1>Procurar Pessoas por CPF/CNPJ</h1>
 <div>
   <input type="text" [(ngModel)]="cpfCnpj" placeholder="Digite o CPF/CNPJ">
@@ -18,7 +18,7 @@
         <th>Preço</th>
         <th>Quantidade</th>
         <th>Produto</th>
-        <th>Data da Venda</th>
+        <th>Data da Vendaaaaaaaa</th>
       </tr>
     </thead>
     <tbody>
@@ -33,4 +33,58 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
+
+<!-- src/app/components/procurar-pessoa-cpfcnpj/procurar-pessoa-cpfcnpj.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procurar Pessoas por CPF/CNPJ</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4">Procurar Pessoas por CPF/CNPJ</h1>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" [(ngModel)]="cpfCnpj" placeholder="Digite o CPF/CNPJ">
+      <div class="input-group-append">
+        <button class="btn btn-primary" (click)="procurarPessoas()">Procurar</button>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <div *ngIf="pessoas.length > 0" class="mt-4">
+      <h2>Lista de Pessoas</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>CPF/CNPJ</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Produto</th>
+            <th>Data da Venda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pessoa of pessoas">
+            <td>{{ pessoa.id }}</td>
+            <td>{{ pessoa.cpfCnpj }}</td>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.preco }}</td>
+            <td>{{ pessoa.quantidade }}</td>
+            <td>{{ pessoa.produto.nome }}</td>
+            <td>{{ pessoa.dataVenda | date:'dd/MM/yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
+

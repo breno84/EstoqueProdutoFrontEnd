@@ -1,27 +1,62 @@
-<h2>Lista de Pessoas</h2>
-<table>
-  <thead>
-    <tr>
-      <th>CPF/CNPJ</th>
-      <th>Nome</th>
-      <th>Preço</th>
-      <th>Data Venda</th>
-      <th>Quantidade</th>
-      <th>Produto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let pessoa of pessoas">
-      <td>{{ pessoa.cpfCnpj }}</td>
-      <td>{{ pessoa.nome }}</td>
-      <td>{{ pessoa.preco }}</td>
-      <td>{{ pessoa.dataVenda | date:'dd/MM/yyyy' }}</td>
-      <td>{{ pessoa.quantidade }}</td>
-      <td>{{ pessoa.produto.nome }}</td>
-      <td>
-        <!-- <a [routerLink]="['/detalhes-pessoa', pessoa.id]">Detalhes</a>
-        <a [routerLink]="['/editar-pessoa', pessoa.id]">Editar</a> -->
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Table</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">CPF/CNPJ</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Preco</th>
+          <th scope="col">Data Venda</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Desc</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-pessoas">
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{ pessoa.cpfCnpj }}</td>
+          <td>{{ pessoa.nome }}</td>
+          <td>{{ pessoa.preco }}</td>
+          <td>{{ pessoa.dataVenda | date:'dd/MM/yyyy' }}</td>
+          <td>{{ pessoa.quantidade }}</td>
+          <td>{{ pessoa.produto.nome }}</td>
+          <td>
+            <!-- <a [routerLink]="['/detalhes-pessoa', pessoa.id]">Detalhes</a>
+            <a [routerLink]="['/editar-pessoa', pessoa.id]">Editar</a> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const pessoas = [
+      { nome: 'João', dataVenda: new Date('2024-07-21') },
+      { nome: 'Maria', dataVenda: new Date('2024-07-20') }
+    ];
+
+    const tabelaPessoas = document.getElementById('tabela-pessoas');
+
+    pessoas.forEach(pessoa => {
+      const row = document.createElement('tr');
+      const nomeCell = document.createElement('td');
+      const dataVendaCell = document.createElement('td');
+
+      nomeCell.textContent = pessoa.nome;
+      dataVendaCell.textContent = pessoa.dataVenda.toLocaleDateString('pt-BR');
+
+      row.appendChild(nomeCell);
+      row.appendChild(dataVendaCell);
+
+      tabelaPessoas.appendChild(row);
+    });
+  </script>
+</body>
+</html>
