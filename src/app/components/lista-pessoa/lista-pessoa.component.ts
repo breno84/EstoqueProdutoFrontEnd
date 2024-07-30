@@ -10,6 +10,9 @@ import { PessoaService } from '../../service/pessoa.service';
 export class ListaPessoaComponent implements OnInit {
   pessoas: Pessoa[] = [];
 
+  id: number = 0;
+  error: string | null = null;
+
   constructor(private pessoaService: PessoaService) {}
 
   ngOnInit(): void {
@@ -22,5 +25,28 @@ export class ListaPessoaComponent implements OnInit {
     }, error => {
       console.error('Erro ao buscar pessoas:', error);
     });
+  }
+  deletePessoa(id: number): void {
+    const confirmDelete = window.confirm('Você tem certeza de que deseja excluir esta pessoa?');
+  
+    if(confirmDelete){
+      this.pessoaService.deleteVendasId(id).subscribe(
+        response => {
+          console.log('Pessoa deletada:', response);
+          window.location.reload();
+          // Atualize a lista de pessoas para refletir a exclusão
+          this.pessoas = this.pessoas.filter(pessoa => pessoa.id !== id);
+        },
+        // error => {
+        //   console.error('Erro ao deletar pessoa:', error);
+        //   this.error = 'Erro ao deletar pessoa.';
+        // }
+    
+      );
+      window.location.reload();
+    }
+    else{
+      console.log("Exclusao cancelada!")
+    }
   }
 }
