@@ -33,5 +33,9 @@ export class PessoaService {
     return this.http.post<Pessoa>(`${this.baseUrl}/create`, pessoa);
   }
 
+  editVenda(pessoa: Pessoa): Observable<Pessoa>{
+    return this.http.post<Pessoa>(`${this.baseUrl}/editVenda`, pessoa);
+  }
+
 
 }

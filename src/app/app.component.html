@@ -1,7 +1,37 @@
-<nav>
-  <a routerLink="/lista-pessoa">Lista de Pessoas</a> <br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a routerLink="/lista-pessoa" class="navbar-brand" href="#">Lista Venda</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a routerLink="/procurar-pessoa" class="nav-link" href="#">Procurar Venda por ID <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/procurar-pessoa-cpf" class="nav-link" href="#">Procurar Pessoa por CPF/CNPJ</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/delete-id" class="nav-link" href="#">DELETE PESSOA POR ID</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/create-venda" class="nav-link" href="#">Criar Venda</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- <a routerLink="/lista-pessoa">Lista de Pessoas</a> <br>
   <a routerLink="/procurar-pessoa">Procurar Pessoa por ID</a><br>
   <a routerLink="/procurar-pessoa-cpf">Procurar Pessoa por CPF/CNPJ</a><br>
-  <a routerLink="/delete-id">DELETE PESSOA POR ID</a>
+  <a routerLink="/delete-id">DELETE PESSOA POR ID</a> -->
 </nav>
 <router-outlet></router-outlet>
