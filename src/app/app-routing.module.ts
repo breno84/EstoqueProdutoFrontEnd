@@ -5,6 +5,7 @@ import { ProcurarPessoaComponent } from './components/procurar-pessoa/procurar-p
 import { ProcurarPessoaCpfComponent } from './components/procurar-pessoa-cpf/procurar-pessoa-cpf.component';
 import { DeleteIdComponent } from './components/delete-id/delete-id.component';
 import { VendaCpfComponent } from './components/venda-cpf/venda-cpf.component';
+import { EditVendaComponent } from './components/edit-venda/edit-venda.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/lista-pessoa', pathMatch: 'full' },
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: 'procurar-pessoa-cpf',component: ProcurarPessoaCpfComponent},
   { path: 'delete-id',component: DeleteIdComponent},
   { path: 'create-venda',component: VendaCpfComponent},
+  { path: 'edit-venda',component: EditVendaComponent},
+
 ];
 
 @NgModule({

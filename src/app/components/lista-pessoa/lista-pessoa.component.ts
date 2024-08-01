@@ -13,6 +13,9 @@ export class ListaPessoaComponent implements OnInit {
   id: number = 0;
   error: string | null = null;
 
+  selectedPessoa: any = null;
+  selectedPessoaIndex: number | null = null;
+
   constructor(private pessoaService: PessoaService) {}
 
   ngOnInit(): void {
@@ -49,4 +52,27 @@ export class ListaPessoaComponent implements OnInit {
       console.log("Exclusao cancelada!")
     }
   }
+
+  buttonEditVenda(pessoa: any) {
+    this.selectedPessoa = pessoa;
+  }
+  closeDetails() {
+    this.selectedPessoa = null;
+    this.selectedPessoaIndex = null;
+  }
+
+  saveChanges() {
+    if (this.selectedPessoaIndex !== null) {
+      const index = this.pessoas.findIndex(p => p.id === this.selectedPessoa.id);
+      if (index > -1) {
+        this.pessoas[index] = this.selectedPessoa;
+      }
+      this.closeDetails(); 
+    }
+  }
+
+  toggleEdit(index: number): void {
+    this.selectedPessoaIndex = this.selectedPessoaIndex === index ? null : index;
+  }
+
 }

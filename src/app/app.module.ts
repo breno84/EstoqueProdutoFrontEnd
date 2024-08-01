@@ -11,6 +11,7 @@ import { ProcurarPessoaComponent } from './components/procurar-pessoa/procurar-p
 import { ProcurarPessoaCpfComponent } from './components/procurar-pessoa-cpf/procurar-pessoa-cpf.component';
 import { DeleteIdComponent } from './components/delete-id/delete-id.component';
 import { VendaCpfComponent } from './components/venda-cpf/venda-cpf.component';
+import { EditVendaComponent } from './components/edit-venda/edit-venda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { VendaCpfComponent } from './components/venda-cpf/venda-cpf.component';
     ProcurarPessoaCpfComponent,
     DeleteIdComponent,
     VendaCpfComponent,
+    EditVendaComponent
   ],
   imports: [
     BrowserModule,
